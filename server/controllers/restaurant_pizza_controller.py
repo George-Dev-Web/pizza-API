@@ -4,7 +4,7 @@ from server.models.pizza import Pizza
 from server.models.restaurant import Restaurant
 from server import db
 
-restaurant_pizza_bp = Blueprint('restaurant_pizza_bp', __name__)
+restaurant_pizza_bp = Blueprint('restaurant_pizza_bp', __name__, url_prefix='/restaurant_pizza')
 
 # POST /restaurant_pizzas
 @restaurant_pizza_bp.route('/restaurant_pizzas', methods=['POST'])
