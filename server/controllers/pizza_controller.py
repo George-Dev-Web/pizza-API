@@ -5,7 +5,7 @@ import logging
 
 pizza_bp = Blueprint('pizza_bp', __name__, url_prefix='/pizzas')
 
-# ✅ Existing POST route — untouched, sacred
+
 @pizza_bp.route('/', methods=['POST'])
 def create_pizza():
     try:
@@ -32,7 +32,7 @@ def create_pizza():
         logging.error(f"Error creating pizza: {e}")
         return jsonify({"error": "Internal server error"}), 500
 
-# ✅ New GET route: list all pizzas
+#  GET route: list all pizzas
 @pizza_bp.route('/', methods=['GET'])
 def get_pizzas():
     pizzas = Pizza.query.all()
@@ -46,7 +46,7 @@ def get_pizzas():
     ]
     return jsonify(pizza_list), 200
 
-# ✅ New DELETE route: delete a pizza by ID
+# DELETE route: delete a pizza by ID
 @pizza_bp.route('/<int:id>', methods=['DELETE'])
 def delete_pizza(id):
     pizza = Pizza.query.get(id)
